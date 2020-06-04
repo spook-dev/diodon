@@ -1,0 +1,8 @@
+supplies
+settings
+supports
+greeting
+syllabus
+grooming
+scooters
+shooters

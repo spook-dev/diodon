@@ -1,0 +1,8 @@
+states
+status
+giving
+depend
+defend
+sirius
+salads
+miriam

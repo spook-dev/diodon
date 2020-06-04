@@ -1,0 +1,4 @@
+invisible
+inhibitor
+subsystem
+inhibited

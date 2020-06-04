@@ -1,0 +1,3 @@
+calculator
+calculated
+calculates

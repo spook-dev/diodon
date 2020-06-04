@@ -1,0 +1,7 @@
+resource
+invasion
+clerical
+infusion
+recharge
+recourse
+armchair
