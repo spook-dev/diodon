@@ -1,6 +1,9 @@
 package xyz.diodon.spec.subsolv;
 
 public class SubsolvResult {
-	String output;
-	int time_ms;
+	String Plaintext;
+	int Time_ms;
+	public SubsolvResult(String pt, int time_ms) {
+		Plaintext = pt;
+	}
 }

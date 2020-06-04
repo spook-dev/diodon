@@ -1,0 +1,8 @@
+texture
+textile
+alcatel
+barbuda
+rewrite
+seaside
+cracker
+crocker

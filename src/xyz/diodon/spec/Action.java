@@ -1,19 +1,34 @@
 package xyz.diodon.spec;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
+//import com.google.gson.JsonElement;
+//import com.google.gson.JsonObject;
+//import com.google.gson.JsonSerializationContext;
+//import com.google.gson.JsonSerializer;
+
 public abstract class Action {
-	public String name;
-	public String status;
-	public Class argClass;
-	public Class resultClass;
+	public String Name;
 	
-	public Action(String name, String status, Class argClass, Class resultClass) {
-		this.name = name;
-		this.status = status;	
-		this.argClass = argClass;
-		this.resultClass = resultClass;
+	public UUID ID;
+	public String Status = "";
+	protected Service Parent;
+	
+	public void Register(Service parent) {
+		Parent = parent;
 	}
 
-	public abstract Response Respond(Request r);
+	public abstract ArrayList<Object> Respond(Object r);
+	
+//	public static JsonSerializer<Action> ActionSerializer = new JsonSerializer<Action>() {
+//		@Override
+//		public JsonElement serialize(Action src, Type typeOfSrc, JsonSerializationContext context) {
+//			JsonObject jsonAction = new JsonObject();
+//			jsonAction.addProperty("Name", src.Name);
+//			jsonAction.addProperty("ID", src.ID.toString());
+//			jsonAction.addProperty("Status", src.Status);
+//			return jsonAction;
+//		}
+//	};
 }

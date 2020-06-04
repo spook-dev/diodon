@@ -1,0 +1,1 @@
+java substitution_solver "$@"

@@ -1,3 +1,5 @@
+package xyz.diodon.spec.subsolv;
+
 /*
  * nsa2ez.java
  * 
@@ -23,7 +25,6 @@
  
 import java.util.Hashtable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.lang.Math;
 import java.io.File;
@@ -32,8 +33,6 @@ import java.io.InputStreamReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.FileNotFoundException;
-
-import java.lang.Thread;
 
 public class substitution_solver {
 	private Hashtable<String, ArrayList<String>> patternTable;
@@ -123,7 +122,7 @@ public class substitution_solver {
 		return master_keys;
 	}
 	
-	public ArrayList<key> AdvancedCrack(String ct, boolean doPrint) throws InterruptedException{
+	public ArrayList<key> AdvancedCrack(String ct, boolean doPrint) {
 		ArrayList<String> words = new ArrayList<String>();
 		for(String word : ct.split(" ")){
 			if(!words.contains(word) && patternTable.containsKey(generate_pattern(word))){

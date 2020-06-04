@@ -1,0 +1,5 @@
+everything
+popularity
+deductions
+exemptions
+elevations

@@ -1,29 +1,29 @@
 package xyz.diodon.spec;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
+import java.util.UUID;
 
-public abstract class Response {
-	enum Goal {
-		Store,
-		Read,
-		Action
+public class Response {
+	public UUID RequestID;
+	//private Request Parent;
+	public int group_idx;
+	public int group_size;
+	Object Result;
+	
+	public Response(UUID RequestID, Object result) { //Request parent, 
+		//Parent = parent;
+		Result = result;
+		group_idx = 0;
+		group_size = 1;
 	}
-	UUID RequestID;
-	String service;
-	Goal goal;
-	Object result;
-
-	private Response response;
-
-	public static String gsonify(Object o) {
-		Gson gson = new Gson();
-		return gson.toJson(o);
+	
+	public Response(UUID RequestID, Object result, int groupidx, int groupsize) {
+		Result = result;
+		group_idx = groupidx;
+		group_size = groupsize;
 	}
 
 	public String toString() {
-		return gsonify(this);
+		return Request.gsonify(this);
 	}
 }
 

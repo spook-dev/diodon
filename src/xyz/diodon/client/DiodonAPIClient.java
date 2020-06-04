@@ -5,7 +5,6 @@ import java.util.concurrent.Future;
 
 import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.client.WebSocketClient;
-import xyz.diodon.servlet.DiodonAPIServerSocket;
 
 public class DiodonAPIClient
 {
@@ -29,7 +28,7 @@ public class DiodonAPIClient
                 // Wait for Connect
                 Session session = fut.get();
                 // Send a message
-                session.getRemote().sendString("Hello");
+                session.getRemote().sendString("{}");
                 // Close session
                 session.close();
             }

@@ -1,3 +1,5 @@
+package xyz.diodon.spec.subsolv;
+
 import java.util.ArrayList;
 import java.lang.Math;
 public class string_utils {

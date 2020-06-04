@@ -1,9 +1,20 @@
 package xyz.diodon.servlet;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
 import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.api.WebSocketAdapter;
 
+import xyz.diodon.spec.*;
+
 public class DiodonAPIServerSocket extends WebSocketAdapter {
+	private ServiceManager SM;
+	
+	public DiodonAPIServerSocket(ServiceManager sm) {
+		SM = sm;
+	}
+	
 	@Override
     public void onWebSocketConnect(Session sess)
     {
@@ -15,7 +26,17 @@ public class DiodonAPIServerSocket extends WebSocketAdapter {
     public void onWebSocketText(String message)
     {
         super.onWebSocketText(message);
-        System.out.println("Received TEXT message: " + message);
+        System.out.println("Received: " + message);
+        ArrayList<Response> responses = Request.Respond(message, SM);
+
+		for(Response r : responses) {
+	        try {
+				getRemote().sendString(r.toString());
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
     }
     
     @Override
