@@ -16,6 +16,7 @@ public abstract class Action {
 	protected Service Parent;
 	
 	public void Register(Service parent) {
+		ID = UUID.randomUUID();
 		Parent = parent;
 	}
 

@@ -17,7 +17,7 @@ public class SubsolvAction extends Action {
 			results.add(
 				new SubsolvResult(
 					m.get(i).decrypt(argument.Ciphertext),
-					(int)(System.currentTimeMillis() - unixTime)
+					System.currentTimeMillis() - unixTime
 				));
 		}
 		return results;

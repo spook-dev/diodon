@@ -6,6 +6,9 @@ import java.util.concurrent.Future;
 import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.client.WebSocketClient;
 
+import xyz.diodon.spec.*;
+import xyz.diodon.spec.subsolv.SubsolvArg;
+
 public class DiodonAPIClient
 {
 	public DiodonAPIClient() {
@@ -14,7 +17,7 @@ public class DiodonAPIClient
     public static void main(String[] args)
     {
         URI uri = URI.create("ws://localhost:8080/diodon/api");
-
+        
         WebSocketClient client = new WebSocketClient();
         try
         {
@@ -28,13 +31,12 @@ public class DiodonAPIClient
                 // Wait for Connect
                 Session session = fut.get();
                 // Send a message
-                session.getRemote().sendString("{}");
-                // Close session
-                session.close();
+                Request<SubsolvArg> r = new Request<SubsolvArg>("subsolver", "solve", Request.Goal.Action, new SubsolvArg("MC.VHMTGR CSZSWAU FJTBAM GRA GACZ 'DGAZ' QRTWA DRA QJCNAM SG GRA BSGTJBSW DFTABFA YJHBMSGTJB TB GRA ASCWU 2000D."));
+                session.getRemote().sendString(r.toString());
             }
             finally
             {
-                client.stop();
+                //client.stop();
             }
         }
         catch (Throwable t)
